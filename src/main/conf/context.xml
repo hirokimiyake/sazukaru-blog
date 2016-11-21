@@ -1,0 +1,49 @@
+<Context
+	allowLinking="true"
+	path="/sazukaru-blog"
+	reloadable="false"
+>
+<!-- 接続先DBのURLは、pom.xmlでパラメータ化 -->
+	<Resource
+		name="database"
+		auth="container"
+		type="javax.sql.DataSource"
+		debug="99"
+		factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+		driverClassName="org.postgresql.Driver"
+		url="${pom.jdbc.url}"
+		username="mnuser"
+		password=""
+		removeAbandoned="true"
+		removeAbandonedTimeout="300"
+		logAbandoned="true"
+		maxActive="160"
+		minIdle="0"
+		maxIdle="16"
+		initialSize="8"
+		testOnBorrow="true"
+		testWhileIdle="true"
+		timeBetweenEvictionRunsMillis="10000"
+		minEvictableIdleTimeMillis="180000"
+		numTestsPerEvictionRun="-2"
+		validationQuery="SELECT 1"
+	/>
+	<Manager
+		className="org.apache.catalina.session.PersistentManager"
+		maxIdleBackup="1"
+		processExpiresFrequency="1"
+		saveOnRestart="true"
+		maxActiveSessions="512"
+		distributable="true">
+		<Store
+			className="org.apache.catalina.session.JDBCStore"
+			dataSourceName="database"
+			sessionAppCol="APP_NAME"
+			sessionDataCol="SESSION_DATA"
+			sessionIdCol="SESSION_ID"
+			sessionLastAccessedCol="LAST_ACCESS"
+			sessionMaxInactiveCol="MAX_INACTIVE"
+			sessionTable="T_CAMPAIGN_SNS_TOMCAT_SESSION"
+			sessionValidCol="VALID_SESSION" />
+	</Manager>
+</Context>
