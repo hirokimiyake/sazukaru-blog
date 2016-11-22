@@ -39,7 +39,17 @@
         <property name="definitions">
         <list>
             <value>/WEB-INF/tiles/tiles-defs.xml</value>
+            <value>/WEB-INF/tiles/tiles-defs_regist.xml</value>
         </list>
         </property>
+    </bean>
+
+    <bean id="jmsFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616" />
+    </bean>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="jmsFactory" />
+        <property name="defaultDestinationName" value="TestQueue" />
     </bean>
 </beans>

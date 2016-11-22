@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- エントリーページ -->
+	<definition name="/regist/entry" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/regist/entry.jsp" />
+	</definition>
+
+	<!-- 事前登録ページ -->
+	<definition name="/regist/regist" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/regist/regist.jsp" />
+	</definition>
+
+	<!-- 本登録ページ -->
+	<definition name="/regist/finish" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/regist/finish.jsp" />
+	</definition>
+</tiles-definitions>

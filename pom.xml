@@ -91,6 +91,16 @@
   		<artifactId>jsoup</artifactId>
   		<version>1.8.3</version>
   	</dependency>
+  	<dependency>
+  		<groupId>net.arnx</groupId>
+  		<artifactId>jsonic</artifactId>
+  		<version>1.3.10</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.activemq</groupId>
+  		<artifactId>activemq-all</artifactId>
+  		<version>5.14.1</version>
+  	</dependency>
   </dependencies>
 
   <profiles>
@@ -98,21 +108,21 @@
           <id>dev</id>
           <activation><activeByDefault>true</activeByDefault></activation>
           <properties>
-              <pom.jdbc.url>jdbc:postgresql://192.168.3.41:5432/mognavi</pom.jdbc.url>
+              <pom.jdbc.url>jdbc:postgresql://192.168.3.42:5432/sazu</pom.jdbc.url>
               <resourcedir>dev</resourcedir>
           </properties>
       </profile>
       <profile>
           <id>stg</id>
           <properties>
-              <pom.jdbc.url>jdbc:postgresql://192.168.3.41:5432/mognavi</pom.jdbc.url>
+              <pom.jdbc.url></pom.jdbc.url>
               <resourcedir>stg</resourcedir>
           </properties>
       </profile>
       <profile>
           <id>prod</id>
           <properties>
-              <pom.jdbc.url>jdbc:postgresql://192.168.2.2:5432/mognavi</pom.jdbc.url>
+              <pom.jdbc.url></pom.jdbc.url>
               <resourcedir>prod</resourcedir>
           </properties>
       </profile>

@@ -12,7 +12,7 @@
 		factory="org.apache.commons.dbcp.BasicDataSourceFactory"
 		driverClassName="org.postgresql.Driver"
 		url="${pom.jdbc.url}"
-		username="mnuser"
+		username="sazu"
 		password=""
 		removeAbandoned="true"
 		removeAbandonedTimeout="300"
@@ -28,7 +28,7 @@
 		numTestsPerEvictionRun="-2"
 		validationQuery="SELECT 1"
 	/>
-	<Manager
+	<!-- Manager
 		className="org.apache.catalina.session.PersistentManager"
 		maxIdleBackup="1"
 		processExpiresFrequency="1"
@@ -45,5 +45,23 @@
 			sessionMaxInactiveCol="MAX_INACTIVE"
 			sessionTable="T_CAMPAIGN_SNS_TOMCAT_SESSION"
 			sessionValidCol="VALID_SESSION" />
-	</Manager>
+	</Manager -->
+
+	<Resource name="jms/ConnectionFactory" auth="Container"
+              type="org.apache.activemq.ActiveMQConnectionFactory"
+              description="JMS Connection Factory"
+              factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+              brokerURL="tcp://localhost:61616"
+              brokerName="ActiveMQBroker"
+              useEmbeddedBroker="false"/>
+
+	<Resource name="jms/topic/MyTopic" auth="Container"
+              type="org.apache.activemq.command.ActiveMQTopic"
+              factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+              physicalName="APP.JMS.TOPIC"/>
+
+	<Resource name="jms/queue/MyQueue" auth="Container"
+              type="org.apache.activemq.command.ActiveMQQueue"
+              factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+              physicalName="APP.JMS.QUEUE" />
 </Context>
