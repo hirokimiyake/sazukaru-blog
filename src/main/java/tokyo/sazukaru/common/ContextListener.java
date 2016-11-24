@@ -7,6 +7,9 @@ import java.util.Properties;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.apache.activemq.broker.BrokerService;
+
+import tokyo.sazukaru.blog.user.UserManager;
 import jp.co.eatsmart.framework.LogManager;
 import jp.co.eatsmart.framework.ServerException;
 import jp.co.eatsmart.framework.SystemException;
@@ -30,7 +33,14 @@ public class ContextListener implements ServletContextListener {
 			LogManager.init();
 
 			// ユーザーマネージャー
-//			UserManager.initialize(UserBeanManager.class.getName());
+			UserManager.initialize(UserManager.class.getName());
+
+			// ActiveMQ
+			BrokerService broker = new BrokerService();
+			// configure the broker
+			broker.addConnector("tcp://localhost:61616");
+			broker.start();
+
 		} catch(Exception e){
 			LogManager.trace(e);
 		}

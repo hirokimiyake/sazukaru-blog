@@ -23,7 +23,43 @@
 		<filter-name>contextFilter</filter-name>
 		<filter-class>jp.co.eatsmart.framework.ContextFilter</filter-class>
 	</filter>
-
+<!-- 自動ログイン -->
+  <filter>
+    <filter-name>autoLoginFilter</filter-name>
+    <filter-class>tokyo.sazukaru.filter.AutoLoginFilter</filter-class>
+    <init-param>
+      <param-name>except</param-name>
+      <param-value>
+        .*\.(css|js|gif|jpg|jpeg|png|bmp),
+        /script/.*
+      </param-value>
+    </init-param>
+    <init-param>
+      <param-name>check</param-name>
+      <param-value></param-value>
+    </init-param>
+  </filter>
+<!-- ログインチェック -->
+  <filter>
+    <filter-name>loginFilter</filter-name>
+    <filter-class>tokyo.sazukaru.filter.LoginFilter</filter-class>
+    <init-param>
+      <param-name>except</param-name>
+      <param-value>
+        .*\.(css|js|gif|jpg|jpeg|png|bmp)
+      </param-value>
+    </init-param>
+    <init-param>
+      <param-name>check</param-name>
+      <param-value>
+      	/user/.*
+      </param-value>
+    </init-param>
+    <init-param>
+      <param-name>redirect</param-name>
+      <param-value>/sazukaru-blog/login/</param-value>
+    </init-param>
+  </filter>
 	<filter-mapping>
 		<filter-name>CharacterEncoding</filter-name>
 		<url-pattern>/*</url-pattern>
@@ -32,6 +68,15 @@
 		<filter-name>contextFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+  <filter-mapping>
+    <filter-name>autoLoginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>loginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
@@ -47,6 +92,15 @@
 		<servlet-name>dispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+
+  <!-- ==================== Taglib ===================== -->
+	<jsp-config>
+		<taglib>
+			<taglib-uri>/tags/hm-form</taglib-uri>
+			<taglib-location>/WEB-INF/tld/hm-form.tld</taglib-location>
+		</taglib>
+	</jsp-config>
 
 	<resource-ref>
 		<description>DB Connection</description>

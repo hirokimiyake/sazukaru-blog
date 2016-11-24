@@ -1,11 +1,11 @@
 INSERT INTO M_USER(
 	NAME,
-	MAILADDRESS,
+	MAIL_ADDRESS,
 	PASSWORD,
 	NICKNAME
 ) VALUES (
 	/*name*/,
-	/*mailaddress*/,
+	/*mailAddress*/,
 	/*password*/,
 	/*nickname*/
 )

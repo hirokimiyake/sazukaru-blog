@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- ユーザーページINDEX -->
+	<definition name="/user/index" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/user/index.jsp" />
+	</definition>
+
+	<!-- エントリーページ -->
+	<definition name="/user/blog/entry" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/user/blog/entry.jsp" />
+	</definition>
+
+	<!-- blog登録ページ -->
+	<definition name="/user/blog/regist" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/user/blog/regist.jsp" />
+	</definition>
+</tiles-definitions>

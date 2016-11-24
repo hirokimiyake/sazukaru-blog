@@ -2,18 +2,17 @@ package tokyo.sazukaru.blog.regist;
 
 import java.math.BigDecimal;
 
-import org.apache.commons.beanutils.BeanUtils;
-
+import tokyo.sazukaru.blog.user.User;
+import tokyo.sazukaru.blog.user.UserManager;
 import net.arnx.jsonic.JSON;
 import jp.co.eatsmart.framework.DBConnectionManager;
 import jp.co.eatsmart.framework.ServerException;
-import jp.co.eatsmart.framework.SystemException;
 import jp.co.eatsmart.util.SequenceUtil;
 import jp.co.eatsmart.util.StringUtil;
 
 public class EntryProfile {
 
-	private String mailaddress;
+	private String mailAddress;
 	private String password;
 	private String name;
 	private String nickname;
@@ -38,15 +37,18 @@ public class EntryProfile {
 	public void regist() throws ServerException {
 		DBConnectionManager.getInstance().getConnection().execute("insert",this);
 
-		//TODO:roグイン処理
 		BigDecimal userId = SequenceUtil.getCurVal("m_user_user_id_seq");
+		User user = new User();
+		user.setUserId(userId.longValue());
+		user.setNickname(this.getNickname());
+		((UserManager)UserManager.getInstance()).login(user);
 	}
 
-	public String getMailaddress() {
-		return mailaddress;
+	public String getMailAddress() {
+		return mailAddress;
 	}
-	public void setMailaddress(String mailaddress) {
-		this.mailaddress = mailaddress;
+	public void setMailAddress(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 	public String getPassword() {
 		return password;

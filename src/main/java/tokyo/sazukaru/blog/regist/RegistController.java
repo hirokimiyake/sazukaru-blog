@@ -19,16 +19,16 @@ public class RegistController {
 	private JmsTemplate jmsTemplate;
 
 	@RequestMapping(value = "/regist/entry", method = RequestMethod.GET)
-	public ModelAndView preEntry() throws SystemException, ServerException {
-
-		jmsTemplate.convertAndSend("abc");
-
-		return new ModelAndView("/regist/entry").addObject("bean", new EntryProfile());
+	public ModelAndView entry() throws SystemException, ServerException {
+		return new ModelAndView("/regist/entry").addObject("entryProfile", new EntryProfile());
 	}
 
 	@RequestMapping(value = "/regist/regist", method = RequestMethod.POST)
-	public ModelAndView preRegist(@ModelAttribute EntryProfile bean) throws SystemException, ServerException {
+	public ModelAndView regist(@ModelAttribute EntryProfile bean) throws SystemException, ServerException {
 		bean.registTemporary();
+
+		jmsTemplate.convertAndSend("abc");
+
 		return new ModelAndView("/regist/regist");
 	}
 
@@ -38,6 +38,5 @@ public class RegistController {
 		ep.regist();
 		return new ModelAndView("/regist/finish");
 	}
-
 
 }

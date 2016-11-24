@@ -5,12 +5,12 @@
 <h1>会員登録</h1>
 
 <div class="container">
-<form:form action="${pageContext.request.contextPath}/regist/regist" modelAttribute="bean" method="post">
+<form:form action="${pageContext.request.contextPath}/regist/regist" modelAttribute="entryProfile" method="post">
 
 <div class="form-group row">
-  <label for="mailaddress" class="col-xs-2 col-form-label">メールアドレス</label>
+  <label for="mail_address" class="col-xs-2 col-form-label">メールアドレス</label>
   <div class="col-xs-10">
-    <form:input path="mailaddress" cssClass="form-control" type="text" cssId="mailaddress" />
+    <form:input path="mailAddress" cssClass="form-control" type="text" cssId="mail_address" />
   </div>
 </div>
 <div class="form-group row">

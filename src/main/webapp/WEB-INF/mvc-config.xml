@@ -39,7 +39,9 @@
         <property name="definitions">
         <list>
             <value>/WEB-INF/tiles/tiles-defs.xml</value>
+            <value>/WEB-INF/tiles/tiles-defs_login.xml</value>
             <value>/WEB-INF/tiles/tiles-defs_regist.xml</value>
+            <value>/WEB-INF/tiles/tiles-defs_user.xml</value>
         </list>
         </property>
     </bean>
@@ -51,5 +53,12 @@
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <property name="connectionFactory" ref="jmsFactory" />
         <property name="defaultDestinationName" value="TestQueue" />
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:/messages" />
+    </bean>
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="validationMessageSource" ref="messageSource" />
     </bean>
 </beans>
