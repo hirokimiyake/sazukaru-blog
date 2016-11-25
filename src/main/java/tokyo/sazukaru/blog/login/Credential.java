@@ -18,7 +18,8 @@ public class Credential {
 
 	public void login() throws ServerException {
 		User u = User.loadByCredential(mailAddress, password);
-		if(u==null||u.getUserId()==null||u.getUserId().longValue()==0){
+		System.out.println(u.getNickname());
+		if(u==null||u.getUserId()==null){
 			throw new InvalidLoginException(mailAddress,password);
 		}
 		((UserManager)UserManager.getInstance()).login(u);

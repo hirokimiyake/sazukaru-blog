@@ -8,7 +8,7 @@ import jp.co.eatsmart.framework.UserInterface;
 
 public class User implements UserInterface {
 
-	private long userId;
+	private BigDecimal userId;
 	private String nickname;
 
 	public static User loadByCredential(String mailAddress,String password) throws ServerException {
@@ -17,7 +17,7 @@ public class User implements UserInterface {
 	}
 
 	public BigDecimal getUserId() {
-		return new BigDecimal(userId);
+		return userId;
 	}
 
 	public String getUsername() {
@@ -32,7 +32,7 @@ public class User implements UserInterface {
 		this.nickname = nickname;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(BigDecimal userId) {
 		this.userId = userId;
 	}
 

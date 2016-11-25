@@ -8,13 +8,12 @@
 <div class="container">
 <form:form action="${pageContext.request.contextPath}/login/login" modelAttribute="credential" method="post">
 
-    <form:errors path="*" element="div" cssClass="alert alert-danger" role="alert" />
+<form:errors path="*" element="div" cssClass="alert alert-danger" role="alert" />
 
 <hm-form:element path="mailAddress" element="div" cssClass="form-group row" cssErrorClass="form-group row has-error">
   <label for="mail_address" class="col-xs-2 col-form-label">メールアドレス</label>
   <div class="col-xs-10">
     <form:input path="mailAddress" cssClass="form-control" type="text" cssId="mail_address" />
-    <form:errors path="mailAddress" />
   </div>
 </hm-form:element>
 <hm-form:element path="password" element="div" cssClass="form-group row" cssErrorClass="form-group row has-error">
