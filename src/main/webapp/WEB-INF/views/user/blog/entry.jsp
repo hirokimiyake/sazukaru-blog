@@ -8,6 +8,8 @@
 <div class="container">
 <form:form action="${pageContext.request.contextPath}/user/blog/regist" modelAttribute="userBlog" method="post">
 
+<form:errors path="*" element="div" cssClass="alert alert-danger" role="alert" />
+
 <div class="form-group row">
   <label for="blogName" class="col-xs-2 col-form-label">ブログ名</label>
   <div class="col-xs-10">
@@ -35,7 +37,7 @@
 <div class="form-group row">
   <label for="profilePicturePath" class="col-xs-2 col-form-label">プロフィール画像</label>
   <div class="col-xs-10">
-    <form:input path="profilePicturePath" cssClass="form-control" type="file" cssId="profilePicturePath" />
+    <form:input path="profilePicturePath" cssClass="" type="file" cssId="profilePicturePath" />
   </div>
 </div>
 
@@ -44,7 +46,7 @@
   <div class="col-sm-10">
     <div class="form-check">
       <label class="form-check-label">
-        <checkbox path="kiyakuAgree" class="form-check-input" /> ブログ登録者利用規約に同意する
+        <form:checkbox path="kiyakuAgree" class="form-check-input" /> ブログ登録者利用規約に同意する
       </label>
     </div>
   </div>
