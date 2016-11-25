@@ -2,6 +2,11 @@ package tokyo.sazukaru.blog.regist;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.AssertTrue;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import tokyo.sazukaru.blog.user.User;
 import tokyo.sazukaru.blog.user.UserManager;
 import net.arnx.jsonic.JSON;
@@ -12,11 +17,18 @@ import jp.co.eatsmart.util.StringUtil;
 
 public class EntryProfile {
 
+	@NotEmpty
+	@Email
 	private String mailAddress;
+	@NotEmpty
 	private String password;
+	@NotEmpty
 	private String name;
+	@NotEmpty
 	private String nickname;
+	@AssertTrue( message="{error.agree.kiyaku}")
 	private boolean kiyakuAgree;
+	@AssertTrue(message="{error.agree.privacy}")
 	private boolean privacyAgree;
 
 	public static EntryProfile loadByAccessId(String accessId) throws ServerException {
@@ -39,7 +51,7 @@ public class EntryProfile {
 
 		BigDecimal userId = SequenceUtil.getCurVal("m_user_user_id_seq");
 		User user = new User();
-		user.setUserId(userId.longValue());
+		user.setUserId(userId);
 		user.setNickname(this.getNickname());
 		((UserManager)UserManager.getInstance()).login(user);
 	}

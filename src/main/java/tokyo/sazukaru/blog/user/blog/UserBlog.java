@@ -1,5 +1,7 @@
 package tokyo.sazukaru.blog.user.blog;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import jp.co.eatsmart.framework.DBConnectionManager;
 import jp.co.eatsmart.framework.LogManager;
 import jp.co.eatsmart.framework.ServerException;
@@ -9,8 +11,11 @@ public class UserBlog {
 	private long userBlogId;
 	private long userId;
 	private String blogName;
+
+	@NotEmpty
 	private String blogUrl;
 	private String rss;
+
 	private String introduction;
 	private String profilePicturePath;
 
