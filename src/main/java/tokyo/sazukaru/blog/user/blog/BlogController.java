@@ -23,9 +23,6 @@ import tokyo.sazukaru.common.BaseController;
 @Controller
 public class BlogController extends BaseController {
 
-	@Autowired
-	private JmsTemplate jmsTemplate;
-
 	@RequestMapping(value = "/user/blog/entry", method = RequestMethod.GET)
 	public ModelAndView entryBlog(@ModelAttribute UserBlog userBlog) throws SystemException, ServerException {
 		return new ModelAndView("/user/blog/entry").addObject("userBlog", userBlog);

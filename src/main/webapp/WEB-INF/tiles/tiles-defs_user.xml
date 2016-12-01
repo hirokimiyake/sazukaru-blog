@@ -8,13 +8,23 @@
 		<put-attribute name="body" value="/WEB-INF/views/user/index.jsp" />
 	</definition>
 
-	<!-- エントリーページ -->
+	<!-- BLOGエントリーページ -->
 	<definition name="/user/blog/entry" extends="layout.main">
 		<put-attribute name="body" value="/WEB-INF/views/user/blog/entry.jsp" />
 	</definition>
 
-	<!-- blog登録ページ -->
+	<!-- BLOG登録ページ -->
 	<definition name="/user/blog/regist" extends="layout.main">
 		<put-attribute name="body" value="/WEB-INF/views/user/blog/regist.jsp" />
+	</definition>
+
+	<!-- プロフィールエントリーページ -->
+	<definition name="/user/profile/entry" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/user/profile/entry.jsp" />
+	</definition>
+
+	<!-- プロフィール登録 -->
+	<definition name="/user/profile/regist" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/user/profile/regist.jsp" />
 	</definition>
 </tiles-definitions>
