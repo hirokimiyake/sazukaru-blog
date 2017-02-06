@@ -12,8 +12,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
 	@RequestMapping(value = "/user/", method = RequestMethod.GET)
-	public ModelAndView entryBlog() throws SystemException, ServerException {
-		return new ModelAndView("/user/index");
+	public ModelAndView entryBlog(User user) throws SystemException, ServerException {
+
+		// userid未指定の場合は、自分のマイページを表示
+		if(user.getUserId()==null){
+			user = (User)UserManager.getInstance().getUser();
+		} else {
+			user = User.load(user.getUserId());
+		}
+
+		return new ModelAndView("/user/index").addObject("user", user);
 	}
 
 }

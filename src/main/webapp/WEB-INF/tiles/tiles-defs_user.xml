@@ -27,4 +27,9 @@
 	<definition name="/user/profile/regist" extends="layout.main">
 		<put-attribute name="body" value="/WEB-INF/views/user/profile/regist.jsp" />
 	</definition>
+
+	<!-- プロフィール編集ページ -->
+	<definition name="/user/profile/edit" extends="layout.main">
+		<put-attribute name="body" value="/WEB-INF/views/user/profile/edit.jsp" />
+	</definition>
 </tiles-definitions>

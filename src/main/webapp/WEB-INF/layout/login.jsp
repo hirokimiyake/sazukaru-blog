@@ -13,7 +13,6 @@
 
     <!-- Include the CSS -->
     <link href="/sazukaru-blog/css/toolkit.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 
   </head>
 <body class="with-top-navbar">
@@ -86,12 +85,13 @@
   </div>
 </nav>
 
-<div class="container docs-content">
+<div class="container-fluid container-fill-height">
+<div class="container-content-middle">
 <tiles:insertAttribute name="body" />
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="/sazukaru-blog/toolkit.min.js"></script>
 </body>
 </html>

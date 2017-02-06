@@ -10,6 +10,7 @@ public class UserManager extends jp.co.eatsmart.framework.UserManager implements
 
 	public void login(User user) {
 		LogManager.info("userLogin:"+user.getUserId());
+		user.setMyself(true);
 		SessionManager.getInstance().setSessionAttribute(LOGIN_USER_SESSION_KEY,user);
 	}
 

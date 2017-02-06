@@ -18,7 +18,6 @@ public class Credential {
 
 	public void login() throws ServerException {
 		User u = User.loadByCredential(mailAddress, password);
-		System.out.println(u.getNickname());
 		if(u==null||u.getUserId()==null){
 			throw new InvalidLoginException(mailAddress,password);
 		}
@@ -43,5 +42,5 @@ public class Credential {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
+
 }

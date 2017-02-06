@@ -4,7 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<!-- ログインページ -->
-	<definition name="/login/index" extends="layout.main">
+	<definition name="/login/index" extends="layout.login">
 		<put-attribute name="body" value="/WEB-INF/views/login/index.jsp" />
 	</definition>
 </tiles-definitions>

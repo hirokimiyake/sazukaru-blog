@@ -37,7 +37,8 @@
 <div class="form-group row">
   <label for="profilePicturePath" class="col-xs-2 col-form-label">プロフィール画像</label>
   <div class="col-xs-10">
-    <form:input path="profilePicturePath" cssClass="" type="file" cssId="profilePicturePath" />
+    <iframe src="${pageContext.request.contextPath}/common/picture/entry?idName=profilePicturePath" frameborder="0"></iframe>
+    <form:input path="profilePicturePath" cssClass="" type="text" cssId="profilePicturePath" />
   </div>
 </div>
 

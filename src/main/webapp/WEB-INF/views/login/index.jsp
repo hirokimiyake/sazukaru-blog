@@ -6,21 +6,15 @@
 <h1>ログイン</h1>
 
 <div class="container">
-<form:form action="${pageContext.request.contextPath}/login/login" modelAttribute="credential" method="post">
+<form:form action="${pageContext.request.contextPath}/login/login" modelAttribute="credential" method="post" cssClass="m-x-auto text-center app-login-form">
 
 <form:errors path="*" element="div" cssClass="alert alert-danger" role="alert" />
 
 <hm-form:element path="mailAddress" element="div" cssClass="form-group row" cssErrorClass="form-group row has-error">
-  <label for="mail_address" class="col-xs-2 col-form-label">メールアドレス</label>
-  <div class="col-xs-10">
-    <form:input path="mailAddress" cssClass="form-control" type="text" cssId="mail_address" />
-  </div>
+	<form:input path="mailAddress" cssClass="form-control" type="text" cssId="mail_address" placeholder="メールアドレス" />
 </hm-form:element>
 <hm-form:element path="password" element="div" cssClass="form-group row" cssErrorClass="form-group row has-error">
-  <label for="password" class="col-xs-2 col-form-label">パスワード</label>
-  <div class="col-xs-10">
-    <form:input path="password" cssClass="form-control" type="password" cssId="password" />
-  </div>
+	<form:input path="password" cssClass="form-control" type="password" cssId="password" placeholder="パスワード" />
 </hm-form:element>
 
 <div class="form-group row">

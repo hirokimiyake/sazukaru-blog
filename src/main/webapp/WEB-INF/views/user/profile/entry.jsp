@@ -6,7 +6,7 @@
 <h1>プロフィールを登録する</h1>
 
 <div class="container">
-<form:form action="${pageContext.request.contextPath}/user/profile/regist" modelAttribute="profile" method="post">
+<form:form action="${pageContext.request.contextPath}/user/profile/finish" modelAttribute="profile" method="post">
 
 <form:errors path="*" element="div" cssClass="alert alert-danger" role="alert" />
 
@@ -31,6 +31,31 @@
     <form:radiobuttons path="ninkatsuStyleDiscloseKbn" items="${profile.discloseKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
   </div>
 </div>
+
+<div class="form-group row">
+  <label for="blogUrl" class="col-xs-2 col-form-label">疾患等</label>
+  <div class="col-xs-10">
+    <form:checkboxes path="troubleKbn" items="${profile.troubleKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
+    <form:radiobuttons path="troubleDiscloseKbn" items="${profile.discloseKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="blogUrl" class="col-xs-2 col-form-label">流産歴</label>
+  <div class="col-xs-10">
+    <form:checkboxes path="ryuzanKbn" items="${profile.ryuzanKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
+    <form:radiobuttons path="ryuzanDiscloseKbn" items="${profile.discloseKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="blogUrl" class="col-xs-2 col-form-label">男性不妊</label>
+  <div class="col-xs-10">
+    <form:checkboxes path="husbandFuninKbn" items="${profile.husbandFuninKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
+    <form:radiobuttons path="husbandFuninDiscloseKbn" items="${profile.discloseKbnList.kbn}" itemLabel="kbnValueKanjiName" itemValue="kbnValueCode"/>
+  </div>
+</div>
+
 
 <div class="form-group row">
   <div class="offset-sm-2 col-sm-10">

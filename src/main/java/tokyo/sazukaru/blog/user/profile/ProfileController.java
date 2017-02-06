@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.validation.Valid;
 
 import jp.co.eatsmart.framework.ServerException;
+import jp.co.eatsmart.util.CheckUtil;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -25,7 +26,6 @@ public class ProfileController extends BaseController {
 		return new ModelAndView("/user/profile/entry").addObject("profile", profile);
 	}
 
-
 	@RequestMapping(value = "/user/profile/regist", method = RequestMethod.POST)
 	public ModelAndView regist(@Valid @ModelAttribute Profile profile,BindingResult result) throws ServerException {
 		if(result.hasErrors()){
@@ -36,5 +36,26 @@ public class ProfileController extends BaseController {
 		profile.regist();
 		return new ModelAndView("/user/profile/regist").addObject("profile", profile);
 	}
+
+	@RequestMapping(value = "/user/profile/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@ModelAttribute Profile profile) throws ServerException {
+		if(CheckUtil.isNull(profile.getSexKbn())){
+			profile = ((User)UserManager.getInstance().getUser()).getProfile();
+		}
+		return new ModelAndView("/user/profile/edit").addObject("profile", profile);
+	}
+
+	@RequestMapping(value = "/user/profile/finish", method = RequestMethod.POST)
+	public ModelAndView finish(@Valid @ModelAttribute Profile profile,BindingResult result) throws ServerException {
+		if(result.hasErrors()){
+			return new ModelAndView("/user/profile/edit").addObject("profile", profile);
+		}
+		User user = (User)UserManager.getInstance().getUser();
+		profile.setUserId(user.getUserId());
+		profile.update();
+		user.setProfile(profile);
+		return new ModelAndView("redirect:/user/index");
+	}
+
 
 }
